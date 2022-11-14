@@ -20,7 +20,7 @@ class Router():
             return True
  
     # add user to database
-    def addAccountToDatabase(self, userId, username, name, tweets, followers, following, location, likes, verified): #first parameter is string, rest are integers
+    def addAccountToDatabase(self, userId, username, name, tweets, followers, following, location, likes, verified, code): #first parameter is string, rest are integers
         #if all data fields are filled out and data is not a duplicate then populate the database with the user
         if(bool(userId) == bool(username) == True and not self.duplicate(self.tableName1, "username", username)):
             #change datatype of an input
@@ -30,35 +30,23 @@ class Router():
                 self.isVerified ==0
             else:
                 #potential error case
-                print("Improper verification value passed.")
+                print("Improper verified value passed.")
                 exit()
-            print(userId)
-            print(username)
-            print(name)
-            print(tweets)
-            print(followers)
-            print(following)
-            print(location)
-            print(likes)
-            print(self.isVerified)
-
-            #try:
-            self.cur.execute('''
-                    INSERT INTO ''' + self.tableName1 + ''' (userId, username, name, numberOfFollowers, numberOfFollowing, numberOfTweets, location, likes, verified, used)
-                        VALUES(''' + str(userId) + ''', "''' + username + '''", "''' + name + '''", ''' + str(followers) + ''', ''' + str(following) + ''', ''' + str(tweets) + ''', "''' + location + '''", '''  + str(likes) + ''', ''' + str(self.isVerified) + ''', 0);
-                ''')
-            self.conn.commit()
-            #except:
-            #    print("an error occured")
+            try:
+                self.cur.execute('''
+                    INSERT INTO ''' + self.tableName1 + ''' (userId, username, name, numberOfFollowers, numberOfFollowing, numberOfTweets, location, likes, verified, used, code)
+                        VALUES(''' + str(userId) + ''', "''' + username + '''", "''' + name + '''", ''' + str(followers) + ''', ''' + str(following) + ''', ''' + str(tweets) + ''', "''' + location + '''", '''  + str(likes) + ''', ''' + str(self.isVerified) + ''', 0, "''' + code + '''");
+                    ''')
+                self.conn.commit()
+            except:
+                print("an error occured")
         else:
             print("invalid null variable attribute")
 
     def addHashtagToDatabase(self, hashtag):
         if(bool(hashtag) and not self.duplicate(self.tableName2, "hashtag", hashtag)):
-                self.cur.execute('''
-                    INSERT INTO ''' + self.tableName2 + '''(hashtag, used)
-                        VALUES("''' + hashtag +''', 0);
-                ''')
+                self.cur.execute('''INSERT INTO Hashtags (hashtag, used) VALUES(?, 0) ''', (hashtag,))
+                self.conn.commit()
         else:
             print("Missing Data")
  

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <title>Purchase</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/Purchase.css') }}">
+{% endblock %}
+{% block content %}
+    <div class="purchase_content">
+        <h3>Purchase Accounts</h3>
+        <br>
+        <div class="disclaimer">
+            <p><b>Disclaimer:</b> <span>We cannot guarantee that you will receive the quantity of accounts requested. We will only ever charge you for the accounts you receive.</span></p>
+        </div>
+        <br>
+        <div class="pricing">
+            <p><b>Pricing:</b> <span>We charge 50 cents per account received.</span></p>
+        </div>
+        <br>
+        <form class="info_form" action="{{ url_for('purchase') }}" method="POST">
+            <p><b>Select Account Interests:</b></p>
+            <br>
+            <ul>
+                    <input type="checkbox" value="1" name="myCheckbox"> <p>Finance</p>
+                    <input type="checkbox" value="1" name="myCheckbox"> <p>Technology</p>
+                    <input type="checkbox" value="1" name="myCheckbox"> <p>Education</p>
+                    <input type="checkbox" value="1" name="myCheckbox"> <p>Gaming</p>
+                    <input type="checkbox" value="1" name="myCheckbox"> <p>Health</p>
+                    <input type="checkbox" value="1" name="myCheckbox"> <p>Hobbies</p>
+                    <input type="checkbox" value="1" name="myCheckbox"> <p>Politics</p>
+                    <input type="checkbox" value="1" name="myCheckbox"> <p>Religion</p>
+                    <input type="checkbox" value="1" name="myCheckbox"> <p>Sports</p>
+            </ul>
+            <br>
+            <p><b>Enter Your Ideal Account Quantity:</b></p>
+            <br>
+            <input type="number" class="quantity_field" type="value">
+            <br>
+            <br>
+            <center><b><a href="#" id="checkout-button" class="btn btn-primary">Checkout</a></b></center>
+        </form>
+        <br>
+        <br>
+        <br>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script>
+            const checkout_session_id = '{{ checkout_session_id }}';
+            const checkout_public_key = '{{ checkout_public_key }}';
+        </script>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </div>
+{% endblock %}

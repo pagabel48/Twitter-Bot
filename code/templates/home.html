@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block header %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}">
+<title>Home</title>
+{% endblock %}
+{% block content %}
+<div class="home_body">
+    <br>
+    <br>
+    <h1>Welcome to Informify</h1>
+    <br>
+    <h3>The Premier Source for Categorized Twitter Usernames</h3>
+    <br>
+    <div class="home_paragraph">
+        <p>We use Natural Language Processing (NLP), web scraping, and an army of bots to efficiently discover and categorize Twitter accounts. We aim to provide a seamless user experience, pulling from our collection of over 50,000 authentic, unreferenced Twitter usernames. Whether you need Twitter account usernames for marketing or polling, Informify has you covered.</p>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="buy_now">
+        <center><b><a href="{{ url_for('purchase') }}">Purchase Now</a></b></center>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+.p{
+    background-image: url("static/images/back.png");
+}
+
+.home_body h1, h3 {
+    text-align: center;
+}
+
+.buy_now a:link, a:visited {
+    text-align: center;
+    background-color: blue;
+    border-style: solid;
+    border-color: blue;
+    border-radius: 10px;
+    color: white;
+    padding: 7px;
+}
+
+.buy_now a:hover, a:active {
+    text-align: center;
+    background-color: antiquewhite;
+    border-style: solid;
+    border-color: blue;
+    border-radius: 10px;
+    color: red;
+}

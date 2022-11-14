@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/title.css') }}">
+    {% block header %}
+    <title>Document</title>
+    {% endblock %}
+</head>
+<body>
+    <div class="header">
+        <div class="inner_header">
+            <div class="logo_container">
+                <h1>Inform <span>Ify</span></h1>
+            </div>
+
+            <ul class="navigation">
+                <a href="{{ url_for('home')}}"><li>Home</li></a>
+                <a href="{{ url_for('about')}}"><li>About Us</li></a>
+                <a href="{{ url_for('purchase')}}"><li>Purchase</li></a>
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+    {% block content%}
+        <p>Order Cancelled</p>
+    {% endblock %}
+    </div>
+    <div class="footer">
+        <div class="footer_content">
+            <h3>Inform <span>Ify</span></h3>
+            <p>Fast, Effective, Confidential</p>
+            <div class="footer_bottom">
+                <p>Copyright &copy;2022 Informify. Designed by <span>Paul Gabel</span></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

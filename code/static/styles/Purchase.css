@@ -1,0 +1,38 @@
+.disclaimer span {
+    font-size: 10pt;
+}
+
+.pricing span {
+    font-size: 10pt;
+}
+
+.info_form ul p {
+    text-indent: 40px;
+}
+
+.quantity_field {
+    text-indent: 40px;
+}
+
+.purchase_content h3 {
+    text-align: center;
+}
+
+.info_form a:link, a:visited {
+    text-align: center;
+    background-color: blue;
+    border-style: solid;
+    border-color: blue;
+    border-radius: 10px;
+    color: white;
+    padding: 7px;
+}
+
+.info_form a:hover, a:active {
+    text-align: center;
+    background-color: antiquewhite;
+    border-style: solid;
+    border-color: blue;
+    border-radius: 10px;
+    color: red;
+}
