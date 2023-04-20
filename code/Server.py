@@ -8,11 +8,11 @@ app = Flask(__name__)
 
 con = sqlite3.connect('Accounts.db')
 
-app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51Lu1mdIJUMNqpiyoBs6xt38HwT6Cg27kzn4cWOKllxV7wWjzV62dH53VpKN5JHHeZGgoBvpFK6uYjDxMfW0eEPW500vLuBkr4z'
-app.config['STRIPE_SECRET_KEY'] = 'sk_test_51Lu1mdIJUMNqpiyogGMPSSH4WeEKTPYebrCn9par3R73mwdHYmtHtUzzEhQriiXDJu1q92KoKKZQ0Pu1lSs00jxU00otBnrRoc'
+app.config['STRIPE_PUBLIC_KEY'] = 'enter key'
+app.config['STRIPE_SECRET_KEY'] = 'enter key'
 
-product_id = 'price_1Lu3XEIJUMNqpiyo8dhmPLp7'
-stripe.api_key = 'sk_test_51Lu1mdIJUMNqpiyogGMPSSH4WeEKTPYebrCn9par3R73mwdHYmtHtUzzEhQriiXDJu1q92KoKKZQ0Pu1lSs00jxU00otBnrRoc'
+product_id = 'enter id'
+stripe.api_key = 'enter key'
 
 @app.route("/")
 @app.route("/home")
